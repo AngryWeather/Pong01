@@ -20,6 +20,7 @@ public class Pong01 extends ApplicationAdapter {
 	private float helloCenterX;
 	private float helloY;
 	private final int offsetHelloY = 50;
+	private PlayerOne playerOne;
 
 
 	@Override
@@ -36,6 +37,7 @@ public class Pong01 extends ApplicationAdapter {
 
 		batch = new SpriteBatch();
 
+		playerOne = new PlayerOne();
 
 	}
 

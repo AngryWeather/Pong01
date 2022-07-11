@@ -1,2 +1,4 @@
-package com.github.angryweather.pong01;public class Paddle {
+package com.github.angryweather.pong01;
+
+public class Paddle {
 }

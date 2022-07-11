@@ -1,7 +1,16 @@
 package com.github.angryweather.pong01;
 
 public abstract class Player {
-    // todo Paddle paddle;
-    private int score;
+    Paddle paddle;
+    int score = 0;
+    float x;
+    float y;
 
+    public Player() {
+
+    }
+
+    public int getScore() {
+        return this.score;
+    }
 }
