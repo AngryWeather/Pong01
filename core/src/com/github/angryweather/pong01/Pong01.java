@@ -1,6 +1,7 @@
 package com.github.angryweather.pong01;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -53,6 +54,7 @@ public class Pong01 extends ApplicationAdapter {
 		ScreenUtils.clear(0.2f, 0.2f, 0.2f, 1);
 
 		// render Paddles
+		shapeRenderer.setColor(Color.WHITE);
 		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 		playerOne.render();
 		shapeRenderer.end();

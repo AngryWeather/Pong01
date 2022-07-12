@@ -4,24 +4,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public abstract class Player {
     ShapeRenderer shapeRenderer;
-    Paddle paddle;
     int score = 0;
-    float x;
-    float y;
-
-
-    public float getY() {
-        return y;
-    }
-
-    public void setY(float y) {
-        this.y = y;
-    }
-
-
-    public float getX() {
-        return x;
-    }
 
 
     public Player(ShapeRenderer shapeRenderer) {
