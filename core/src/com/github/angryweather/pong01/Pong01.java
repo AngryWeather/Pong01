@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Pong01 extends ApplicationAdapter {
@@ -22,6 +23,8 @@ public class Pong01 extends ApplicationAdapter {
 	private final int offsetHelloY = 50;
 	private PlayerOne playerOne;
 
+	ShapeRenderer shapeRenderer;
+
 
 	@Override
 	public void create () {
@@ -34,7 +37,7 @@ public class Pong01 extends ApplicationAdapter {
 		helloCenterX = (this.SCREEN_WIDTH - hello.width) / 2;
 		helloY = (this.SCREEN_HEIGHT - offsetHelloY);
 		helloFont.getData().setScale(1.3f);
-
+		shapeRenderer = new ShapeRenderer();
 		batch = new SpriteBatch();
 
 		playerOne = new PlayerOne();
@@ -45,7 +48,13 @@ public class Pong01 extends ApplicationAdapter {
 	@Override
 	public void render () {
 		camera.update();
+		shapeRenderer.setProjectionMatrix(camera.combined);
+
 		ScreenUtils.clear(0.2f, 0.2f, 0.2f, 1);
+
+		// render Paddles
+		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+		shapeRenderer.end();
 
 		batch.begin();
 		helloFont.draw(batch, hello, helloCenterX, helloY);
