@@ -1,5 +1,7 @@
 package com.github.angryweather.pong01;
 
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+
 public abstract class Player {
     Paddle paddle;
     int score = 0;
@@ -16,5 +18,5 @@ public abstract class Player {
     public void setScore(int score) {
         this.score = score;
     }
-
+    public abstract void render(ShapeRenderer shapeRenderer);
 }
