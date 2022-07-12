@@ -34,5 +34,5 @@ public abstract class Player {
     public void setScore(int score) {
         this.score = score;
     }
-    public abstract void render(ShapeRenderer shapeRenderer);
+    public abstract void render();
 }

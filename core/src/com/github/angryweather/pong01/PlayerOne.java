@@ -15,7 +15,7 @@ public class PlayerOne extends Player{
     }
 
     @Override
-    public void render(ShapeRenderer shapeRenderer) {
-        shapeRenderer.rect(this.getX(), this.getY(), );
+    public void render() {
+        this.shapeRenderer.rect(this.getX(), this.getY(), paddle.getWidth(), paddle.getHeight());
     }
 }
