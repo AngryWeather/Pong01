@@ -54,7 +54,7 @@ public class Pong01 extends ApplicationAdapter {
 
 		// render Paddles
 		shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-		playerOne.render(shapeRenderer);
+		playerOne.render();
 		shapeRenderer.end();
 
 		batch.begin();
