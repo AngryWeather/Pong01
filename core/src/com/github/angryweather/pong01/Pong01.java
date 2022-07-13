@@ -22,7 +22,7 @@ public class Pong01 extends ApplicationAdapter {
 	private float helloCenterX;
 	private float helloY;
 	private final int offsetHelloY = 50;
-	private PlayerOne playerOne;
+	private Player playerOne;
 
 	ShapeRenderer shapeRenderer;
 
@@ -41,7 +41,7 @@ public class Pong01 extends ApplicationAdapter {
 		shapeRenderer = new ShapeRenderer();
 		batch = new SpriteBatch();
 
-		playerOne = new PlayerOne(shapeRenderer);
+		playerOne = new Player(shapeRenderer, 20f, 20f);
 
 	}
 
@@ -68,5 +68,6 @@ public class Pong01 extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		helloFont.dispose();
+		shapeRenderer.dispose();
 	}
 }
