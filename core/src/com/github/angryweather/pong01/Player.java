@@ -3,12 +3,11 @@ package com.github.angryweather.pong01;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Player {
-    ShapeRenderer shapeRenderer;
-    private Paddle paddle = new Paddle();
+    final ShapeRenderer shapeRenderer;
+    private final Paddle paddle = new Paddle();
     private int score = 0;
     private float x;
     private float y;
-
 
     public Player(ShapeRenderer shapeRenderer, float x, float y) {
         this.shapeRenderer = shapeRenderer;
