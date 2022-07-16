@@ -4,7 +4,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class Player {
     final ShapeRenderer shapeRenderer;
-    private final Paddle paddle = new Paddle();
+    private final int width = 20;
+    private final int height = 80;
     private int score = 0;
     private float x;
     private float y;
@@ -13,6 +14,14 @@ public class Player {
         this.shapeRenderer = shapeRenderer;
         this.x = x;
         this.y = y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     public float getX() {
@@ -38,6 +47,6 @@ public class Player {
         this.score = score;
     }
     public void render() {
-        shapeRenderer.rect(x, y, paddle.getWidth(), paddle.getHeight());
+        shapeRenderer.rect(x, y, this.getWidth(), this.getHeight());
     }
 }
