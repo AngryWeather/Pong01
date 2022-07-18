@@ -16,8 +16,12 @@ public class Pong01 extends ApplicationAdapter {
     ShapeRenderer shapeRenderer;
     private OrthographicCamera camera;
     private BitmapFont helloFont;
+    private BitmapFont scoreOneFont;
+    private BitmapFont scoreTwoFont;
     private SpriteBatch batch;
     private GlyphLayout hello;
+    private GlyphLayout scoreOne;
+    private GlyphLayout scoreTwo;
     private float helloCenterX;
     private float helloY;
     private Player playerOne;
@@ -35,12 +39,25 @@ public class Pong01 extends ApplicationAdapter {
         int offsetHelloY = 50;
         helloY = (SCREEN_HEIGHT - offsetHelloY);
         helloFont.getData().setScale(1.3f);
+
         shapeRenderer = new ShapeRenderer();
         batch = new SpriteBatch();
 
-        playerOne = new Player(shapeRenderer, 20f, 20f);
-        playerTwo = new Player(shapeRenderer, (SCREEN_WIDTH - 20f), (SCREEN_HEIGHT - 20f));
 
+        playerOne = new Player(20f, 20f);
+        // playerTwo position is based on player's width and height
+        playerTwo = new Player((SCREEN_WIDTH - 40f), (SCREEN_HEIGHT - 100f));
+
+
+        // score fonts
+        scoreOneFont = new BitmapFont();
+        scoreOneFont.getData().scale(5f);
+        scoreTwoFont = new BitmapFont();
+        scoreTwoFont.getData().scale(5f);
+        scoreOne = new GlyphLayout();
+        scoreTwo = new GlyphLayout();
+        scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
+        scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
 
     }
 
@@ -55,12 +72,14 @@ public class Pong01 extends ApplicationAdapter {
         // render Paddles
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        playerOne.render();
-        playerTwo.render();
+        playerOne.render(shapeRenderer);
+        playerTwo.render(shapeRenderer);
         shapeRenderer.end();
 
         batch.begin();
         helloFont.draw(batch, hello, helloCenterX, helloY);
+        scoreOneFont.draw(batch, scoreOne, 400, SCREEN_HEIGHT - 50);
+        scoreTwoFont.draw(batch, scoreTwo, SCREEN_WIDTH - 400 - scoreTwo.width, SCREEN_HEIGHT - 50);
         batch.end();
     }
 
@@ -68,6 +87,7 @@ public class Pong01 extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
         helloFont.dispose();
+        scoreOneFont.dispose();
         shapeRenderer.dispose();
     }
 }
