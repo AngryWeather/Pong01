@@ -2,16 +2,13 @@ package com.github.angryweather.pong01;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Player {
+public abstract class Player {
     private final int width = 20;
     private final int height = 80;
-    private int score = 0;
-    private final float x;
-    private float y;
+    private final int speed = 100;
 
-    public Player(final float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Player() {
+
     }
 
     public int getWidth() {
@@ -22,25 +19,17 @@ public class Player {
         return height;
     }
 
-    public float getX() {
-        return x;
-    }
+    public abstract float getX();
 
-    public float getY() {
-        return y;
-    }
+    public abstract float getY();
 
-    public void setY(float y) {
-        this.y = y;
-    }
+    public abstract void setY(float y);
 
-    public int getScore() {
-        return this.score;
-    }
-    public void setScore(int score) {
-        this.score = score;
-    }
+    public abstract int getScore();
+    public abstract void setScore(int score);
     public void render(ShapeRenderer shapeRenderer) {
         shapeRenderer.rect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
     }
+
+    public abstract void move();
 }

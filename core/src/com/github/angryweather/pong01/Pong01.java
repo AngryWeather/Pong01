@@ -44,9 +44,9 @@ public class Pong01 extends ApplicationAdapter {
         batch = new SpriteBatch();
 
 
-        playerOne = new Player(20f, 20f);
+        playerOne = new LeftPlayer();
         // playerTwo position is based on player's width and height
-        playerTwo = new Player((SCREEN_WIDTH - 40f), (SCREEN_HEIGHT - 100f));
+        playerTwo = new RightPlayer();
 
 
         // score fonts
