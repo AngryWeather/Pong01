@@ -27,8 +27,8 @@ public abstract class Player {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setScore() {
+        this.score++;
     }
 
     public void setY(float y) {
