@@ -6,7 +6,7 @@ public abstract class Player {
     private int score = 0;
     private final int width = 20;
     private final int height = 80;
-    private final int speed = 100;
+    private final int speed = 400;
     private final float x;
     private float y;
 
