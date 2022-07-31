@@ -73,8 +73,10 @@ public class Pong01 extends ApplicationAdapter {
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         playerOne.render(shapeRenderer);
-        playerOne.move();
         playerTwo.render(shapeRenderer);
+
+        // user input
+        playerOne.move();
         shapeRenderer.end();
 
         batch.begin();

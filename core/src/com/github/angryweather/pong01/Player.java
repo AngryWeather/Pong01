@@ -1,5 +1,6 @@
 package com.github.angryweather.pong01;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public abstract class Player {
@@ -51,6 +52,10 @@ public abstract class Player {
     public void render(ShapeRenderer shapeRenderer) {
         shapeRenderer.rect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
     }
+    public void moveUp() {
+        setY(getY() + getSpeed() * Gdx.graphics.getDeltaTime());
+    }
 
-    public abstract void move();
+
+
 }
