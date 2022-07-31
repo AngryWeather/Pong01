@@ -26,6 +26,8 @@ public class Pong01 extends ApplicationAdapter {
     private float helloY;
     private LeftPlayer playerOne;
     private RightPlayer playerTwo;
+    private Wall wall;
+    private CollisionDetector collisionDetector;
 
     @Override
     public void create() {
@@ -59,6 +61,10 @@ public class Pong01 extends ApplicationAdapter {
         scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
         scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
 
+        wall = new Wall();
+        collisionDetector = new CollisionDetector();
+
+        System.out.println(collisionDetector.collides(wall, playerOne));
     }
 
 
