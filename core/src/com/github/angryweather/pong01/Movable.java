@@ -1,5 +1,5 @@
 package com.github.angryweather.pong01;
 
-public interface Moveable {
+public interface Movable {
     public void move();
 }
