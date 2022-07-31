@@ -9,11 +9,12 @@ public class LeftPlayer extends Player implements Movable {
         super(x, y);
     }
 
-
     @Override
     public void move() {
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             moveUp();
+        } else if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+            moveDown();
         }
     }
 }

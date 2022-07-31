@@ -55,7 +55,9 @@ public abstract class Player {
     public void moveUp() {
         setY(getY() + getSpeed() * Gdx.graphics.getDeltaTime());
     }
-
+    public void moveDown() {
+        setY(getY() - getSpeed() * Gdx.graphics.getDeltaTime());
+    }
 
 
 }

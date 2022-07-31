@@ -24,8 +24,8 @@ public class Pong01 extends ApplicationAdapter {
     private GlyphLayout scoreTwo;
     private float helloCenterX;
     private float helloY;
-    private Player playerOne;
-    private Player playerTwo;
+    private LeftPlayer playerOne;
+    private RightPlayer playerTwo;
 
     @Override
     public void create() {
@@ -77,6 +77,7 @@ public class Pong01 extends ApplicationAdapter {
 
         // user input
         playerOne.move();
+        playerTwo.move();
         shapeRenderer.end();
 
         batch.begin();
