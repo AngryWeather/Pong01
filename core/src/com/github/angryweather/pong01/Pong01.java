@@ -64,7 +64,6 @@ public class Pong01 extends ApplicationAdapter {
         wall = new Wall();
         collisionDetector = new CollisionDetector();
 
-        System.out.println(collisionDetector.collides(wall, playerOne));
     }
 
 
@@ -84,6 +83,9 @@ public class Pong01 extends ApplicationAdapter {
         // user input
         playerOne.move();
         playerTwo.move();
+
+        collisionDetector.isColliding(wall, playerOne);
+
         shapeRenderer.end();
 
         batch.begin();

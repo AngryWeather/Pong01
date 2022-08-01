@@ -1,9 +1,18 @@
 package com.github.angryweather.pong01;
 
-public class CollisionDetector<T> {
+public class CollisionDetector {
 
+    public CollisionDetector() {
 
-    public boolean collides(Wall wall, T object) {
-        return true;
+    }
+
+    public boolean isColliding(Wall wall, Player player) {
+        if (player.getY() + player.getHeight() > wall.topWall) {
+            System.out.println("true");
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
