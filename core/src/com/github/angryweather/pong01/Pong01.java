@@ -84,8 +84,8 @@ public class Pong01 extends ApplicationAdapter {
         playerOne.move();
         playerTwo.move();
 
-        if (collisionDetector.isColliding(wall, playerOne)) {
-            playerOne.setY(Pong01.SCREEN_HEIGHT - playerOne.getHeight());
+        if (collisionDetector.isCollidingWithTopBottomWall(wall, playerOne)) {
+            playerOne.setY(0);
         }
 
         shapeRenderer.end();
