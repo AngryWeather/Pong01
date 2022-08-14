@@ -1,6 +1,8 @@
 package com.github.angryweather.pong01;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -8,6 +10,8 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.util.Random;
 
 public class Pong01 extends ApplicationAdapter {
 
@@ -66,8 +70,6 @@ public class Pong01 extends ApplicationAdapter {
         collisionDetector = new CollisionDetector();
 
         ball = new Ball();
-        System.out.println(Pong01.SCREEN_WIDTH / 2f);
-        System.out.println(ball.getX());
     }
 
 
@@ -89,6 +91,18 @@ public class Pong01 extends ApplicationAdapter {
         // user input
         playerOne.move();
         playerTwo.move();
+        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+            Random randomX = new Random();
+            Random randomY = new Random();
+
+            ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 100 : -100);
+            ball.setDy(randomY.nextFloat(-50, 51));
+        }
+
+        ball.move();
+        System.out.println("Dx: " + ball.getDx());
+        System.out.println("Dy: " + ball.getDy());
+
 
         if (collisionDetector.isCollidingWithTopWall(wall, playerOne)) {
             playerOne.setY(wall.topWall - playerOne.getHeight());
