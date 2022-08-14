@@ -28,6 +28,7 @@ public class Pong01 extends ApplicationAdapter {
     private RightPlayer playerTwo;
     private Wall wall;
     private CollisionDetector collisionDetector;
+    private Ball ball;
 
     @Override
     public void create() {
@@ -64,6 +65,9 @@ public class Pong01 extends ApplicationAdapter {
         wall = new Wall();
         collisionDetector = new CollisionDetector();
 
+        ball = new Ball();
+        System.out.println(Pong01.SCREEN_WIDTH / 2f);
+        System.out.println(ball.getX());
     }
 
 
@@ -74,11 +78,13 @@ public class Pong01 extends ApplicationAdapter {
 
         ScreenUtils.clear(0.2f, 0.2f, 0.2f, 1);
 
-        // render Paddles
+        // render Paddles and the ball
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         playerOne.render(shapeRenderer);
         playerTwo.render(shapeRenderer);
+
+        ball.render(shapeRenderer);
 
         // user input
         playerOne.move();
