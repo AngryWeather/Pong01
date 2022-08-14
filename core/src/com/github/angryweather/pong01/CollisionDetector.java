@@ -13,7 +13,6 @@ public class CollisionDetector {
         if (entity instanceof Player) {
             Player player = (Player) entity;
             if (player.getY() + player.getHeight() > wall.topWall) {
-                System.out.println("testCollision");
                 return true;
             }
         }
