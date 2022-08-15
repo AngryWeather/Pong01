@@ -95,14 +95,11 @@ public class Pong01 extends ApplicationAdapter {
             Random randomX = new Random();
             Random randomY = new Random();
 
-            ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 100 : -100);
-            ball.setDy(randomY.nextFloat(-50, 51));
+            ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 200 : -200);
+            ball.setDy(randomY.nextFloat(-200, 200));
         }
 
         ball.move();
-        System.out.println("Dx: " + ball.getDx());
-        System.out.println("Dy: " + ball.getDy());
-
 
         if (collisionDetector.isCollidingWithTopWall(wall, playerOne)) {
             playerOne.setY(wall.topWall - playerOne.getHeight());
