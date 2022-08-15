@@ -96,14 +96,12 @@ public class Pong01 extends ApplicationAdapter {
         playerTwo.move();
 
 
-        System.out.println("Outside: " + gameState);
         if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
             if (gameState.equals("Menu")) {
                 gameState = "Play";
             } else if (gameState.equals("Play")) {
                 Random randomX = new Random();
                 Random randomY = new Random();
-                System.out.println(gameState);
 
                 ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 400 : -400);
                 ball.setDy(randomY.nextFloat(-400, 400));
@@ -118,6 +116,9 @@ public class Pong01 extends ApplicationAdapter {
             ball.centerBall();
         } else {
             ball.move();
+            if (collisionDetector.isCollidingWithTopWall(wall, ball)) {
+                ball.setDy(-ball.getDy());
+            }
         }
 
 

@@ -15,6 +15,11 @@ public class CollisionDetector {
             if (player.getY() + player.getHeight() > wall.topWall) {
                 return true;
             }
+        } else {
+            Ball ball = (Ball) entity;
+            if (ball.getY() + ball.getHeight() > wall.topWall) {
+                return true;
+            }
         }
         return false;
     }
