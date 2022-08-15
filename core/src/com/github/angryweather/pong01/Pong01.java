@@ -33,6 +33,7 @@ public class Pong01 extends ApplicationAdapter {
     private Wall wall;
     private CollisionDetector collisionDetector;
     private Ball ball;
+    private String gameState;
 
     @Override
     public void create() {
@@ -70,6 +71,8 @@ public class Pong01 extends ApplicationAdapter {
         collisionDetector = new CollisionDetector();
 
         ball = new Ball();
+
+        gameState = "Menu";
     }
 
 
@@ -91,15 +94,32 @@ public class Pong01 extends ApplicationAdapter {
         // user input
         playerOne.move();
         playerTwo.move();
-        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-            Random randomX = new Random();
-            Random randomY = new Random();
 
-            ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 200 : -200);
-            ball.setDy(randomY.nextFloat(-200, 200));
+
+        System.out.println("Outside: " + gameState);
+        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+            if (gameState.equals("Menu")) {
+                gameState = "Play";
+            } else if (gameState.equals("Play")) {
+                Random randomX = new Random();
+                Random randomY = new Random();
+                System.out.println(gameState);
+
+                ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 400 : -400);
+                ball.setDy(randomY.nextFloat(-400, 400));
+
+                gameState = "Menu";
+
+            }
+
         }
 
-        ball.move();
+        if (gameState.equals("Menu")) {
+            ball.centerBall();
+        } else {
+            ball.move();
+        }
+
 
         if (collisionDetector.isCollidingWithTopWall(wall, playerOne)) {
             playerOne.setY(wall.topWall - playerOne.getHeight());
