@@ -99,15 +99,14 @@ public class Pong01 extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
             if (gameState.equals("Menu")) {
                 gameState = "Play";
-            } else if (gameState.equals("Play")) {
                 Random randomX = new Random();
                 Random randomY = new Random();
 
-                ball.setDx((randomX.nextFloat(0, 2)) == 1 ? 400 : -400);
-                ball.setDy(randomY.nextFloat(-400, 400));
+                ball.setDx((randomX.nextFloat(0, 2)) > 1 ? 400 : -400);
+                ball.setDy(randomY.nextFloat(-400, 401));
 
+            } else if (gameState.equals("Play")) {
                 gameState = "Menu";
-
             }
 
         }
@@ -116,8 +115,13 @@ public class Pong01 extends ApplicationAdapter {
             ball.centerBall();
         } else {
             ball.move();
-            if (collisionDetector.isCollidingWithTopWall(wall, ball)) {
+            if (collisionDetector.isCollidingWithTopWall(wall, ball)
+                    || collisionDetector.isCollidingWithBottomWall(wall, ball)) {
                 ball.setDy(-ball.getDy());
+            }
+            if (collisionDetector.isPlayerCollidingWithBall(ball, playerOne)
+                    || collisionDetector.isPlayerCollidingWithBall(ball, playerTwo)) {
+                System.out.println("HERE");
             }
         }
 

@@ -60,6 +60,8 @@ public class Ball implements Movable {
     public void centerBall() {
         setX(Pong01.SCREEN_WIDTH / 2f  - getWidth() / 2f);
         setY(Pong01.SCREEN_HEIGHT / 2f - getHeight() / 2f);
+        setDx(0);
+        setDy(0);
     }
     @Override
     public void move() {
