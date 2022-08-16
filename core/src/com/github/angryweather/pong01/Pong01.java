@@ -121,7 +121,12 @@ public class Pong01 extends ApplicationAdapter {
             }
             if (collisionDetector.isPlayerCollidingWithBall(ball, playerOne)
                     || collisionDetector.isPlayerCollidingWithBall(ball, playerTwo)) {
-                System.out.println("HERE");
+                System.out.println("COLLISION!!!");
+//                System.out.println("playerOne: " + playerOne.getX() + playerOne.getHeight() + " ball: " + ball.getX());
+//                System.out.println("playerTwo: " + playerTwo.getX() + " ball: " + ball.getX());
+                Random randomY = new Random();
+                ball.setDx(-ball.getDx());
+                ball.setDy(randomY.nextFloat(-400, 401));
             }
         }
 
