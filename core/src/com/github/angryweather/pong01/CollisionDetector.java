@@ -9,7 +9,7 @@ public class CollisionDetector {
     }
 
     public boolean isPlayerCollidingWithBall(Ball ball, Player player) {
-        if (ball.getX() < player.getX() + player.getHeight() && ball.getX() + ball.getHeight() > player.getX()
+        if (ball.getX() < player.getX() + player.getWidth() && ball.getX() + ball.getWidth() > player.getX()
                 && ball.getY() < player.getY() + player.getHeight()
                 && ball.getY() + ball.getHeight() > player.getY()) {
             return true;
