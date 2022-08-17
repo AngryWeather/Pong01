@@ -3,8 +3,6 @@ package com.github.angryweather.pong01;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import java.util.Random;
-
 public class Ball implements Movable {
     final int width = 20;
     final int height = 20;

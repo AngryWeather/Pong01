@@ -54,7 +54,7 @@ public class Pong01 extends ApplicationAdapter {
 
         playerOne = new LeftPlayer(20f, 20f);
         // playerTwo position is based on player's width and height
-        playerTwo = new RightPlayer(this.SCREEN_WIDTH - 40f, this.SCREEN_HEIGHT - 100f);
+        playerTwo = new RightPlayer(SCREEN_WIDTH - 40f, SCREEN_HEIGHT - 100f);
 
 
         // score fonts
@@ -122,8 +122,6 @@ public class Pong01 extends ApplicationAdapter {
             if (collisionDetector.isPlayerCollidingWithBall(ball, playerOne)
                     || collisionDetector.isPlayerCollidingWithBall(ball, playerTwo)) {
                 System.out.println("COLLISION!!!");
-//                System.out.println("playerOne: " + playerOne.getX() + playerOne.getHeight() + " ball: " + ball.getX());
-//                System.out.println("playerTwo: " + playerTwo.getX() + " ball: " + ball.getX());
                 Random randomY = new Random();
                 ball.setDx(-ball.getDx());
                 ball.setDy(randomY.nextFloat(-400, 401));

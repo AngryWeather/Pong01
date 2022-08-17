@@ -21,30 +21,21 @@ public class CollisionDetector {
     public boolean isCollidingWithTopWall(Wall wall, Object entity) {
         if (entity instanceof Player) {
             Player player = (Player) entity;
-            if (player.getY() + player.getHeight() > wall.topWall) {
-                return true;
-            }
+            return player.getY() + player.getHeight() > wall.topWall;
         } else {
             Ball ball = (Ball) entity;
-            if (ball.getY() + ball.getHeight() > wall.topWall) {
-                return true;
-            }
+            return ball.getY() + ball.getHeight() > wall.topWall;
         }
-        return false;
     }
 
     public boolean isCollidingWithBottomWall(Wall wall, Object entity) {
         if (entity instanceof Player) {
             Player player = (Player) entity;
-            if (player.getY() < wall.bottomWall) {
-                return true;
-            }
+            return player.getY() < wall.bottomWall;
+
         } else {
             Ball ball = (Ball) entity;
-            if (ball.getY() < wall.bottomWall) {
-                return true;
-            }
+            return ball.getY() < wall.bottomWall;
         }
-        return false;
     }
 }
