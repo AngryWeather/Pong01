@@ -11,7 +11,7 @@ public class LeftPlayer extends Player implements Movable {
 
     @Override
     public boolean isScored(Ball ball) {
-        return false;
+        return ball.getX() < this.getX();
     }
 
     @Override

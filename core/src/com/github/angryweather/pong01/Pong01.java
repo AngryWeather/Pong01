@@ -116,8 +116,12 @@ public class Pong01 extends ApplicationAdapter {
         } else {
             ball.move();
             if (playerTwo.isScored(ball)) {
-                System.out.println("GOAL!!!");
                 playerTwo.increaseScore();
+                scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
+                ball.centerBall();
+            } else if (playerOne.isScored(ball)){
+                playerOne.increaseScore();
+                scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
                 ball.centerBall();
             }
 
