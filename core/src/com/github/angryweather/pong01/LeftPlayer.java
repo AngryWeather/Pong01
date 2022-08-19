@@ -10,6 +10,11 @@ public class LeftPlayer extends Player implements Movable {
     }
 
     @Override
+    public boolean isScored(Ball ball) {
+        return false;
+    }
+
+    @Override
     public void move() {
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             moveUp();

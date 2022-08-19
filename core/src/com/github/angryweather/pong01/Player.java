@@ -28,7 +28,7 @@ public abstract class Player {
         return score;
     }
 
-    public void setScore() {
+    public void increaseScore() {
         this.score++;
     }
 
@@ -58,6 +58,8 @@ public abstract class Player {
     public void moveDown() {
         setY(getY() - getSpeed() * Gdx.graphics.getDeltaTime());
     }
+
+    abstract public boolean isScored(Ball ball);
 
 
 }

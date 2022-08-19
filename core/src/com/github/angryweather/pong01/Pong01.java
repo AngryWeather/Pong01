@@ -115,6 +115,12 @@ public class Pong01 extends ApplicationAdapter {
             ball.centerBall();
         } else {
             ball.move();
+            if (playerTwo.isScored(ball)) {
+                System.out.println("GOAL!!!");
+                playerTwo.increaseScore();
+                ball.centerBall();
+            }
+
             if (collisionDetector.isCollidingWithTopWall(wall, ball)
                     || collisionDetector.isCollidingWithBottomWall(wall, ball)) {
                 ball.setDy(-ball.getDy());
@@ -126,6 +132,7 @@ public class Pong01 extends ApplicationAdapter {
                 ball.setDy(randomY.nextFloat(-400, 401));
             }
         }
+
 
 
         if (collisionDetector.isCollidingWithTopWall(wall, playerOne)) {

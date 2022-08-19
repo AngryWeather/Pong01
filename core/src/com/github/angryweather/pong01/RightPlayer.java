@@ -9,6 +9,11 @@ public class RightPlayer extends Player implements Movable{
         super(x, y);
     }
 
+    @Override
+    public boolean isScored(Ball ball) {
+        return ball.getX() + ball.getWidth() > this.getX() + this.getWidth();
+    }
+
 
     @Override
     public void move() {
