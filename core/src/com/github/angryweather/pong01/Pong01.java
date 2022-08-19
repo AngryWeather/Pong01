@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import javax.naming.BinaryRefAddr;
 import java.util.Random;
 
 public class Pong01 extends ApplicationAdapter {
@@ -67,6 +68,7 @@ public class Pong01 extends ApplicationAdapter {
         scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
         scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
 
+
         wall = new Wall();
         collisionDetector = new CollisionDetector();
 
@@ -115,15 +117,14 @@ public class Pong01 extends ApplicationAdapter {
             ball.centerBall();
         } else {
             ball.move();
-            if (playerTwo.isScored(ball)) {
+            if (playerOne.isScored(ball)) {
                 playerTwo.increaseScore();
                 scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
                 if (playerTwo.getScore() == 3) {
                     playerTwo.setAWinner(true);
-                    System.out.println("You win!!!");
                 }
                 ball.centerBall();
-            } else if (playerOne.isScored(ball)){
+            } else if (playerTwo.isScored(ball)){
                 playerOne.increaseScore();
                 scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
                 if (playerOne.getScore() == 3) {
@@ -138,7 +139,8 @@ public class Pong01 extends ApplicationAdapter {
                 playerTwo.resetScore();
                 scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
                 scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
-
+                playerOne.setAWinner(false);
+                playerTwo.setAWinner(false);
             }
             if (collisionDetector.isCollidingWithTopWall(wall, ball)
                     || collisionDetector.isCollidingWithBottomWall(wall, ball)) {
@@ -167,7 +169,9 @@ public class Pong01 extends ApplicationAdapter {
         shapeRenderer.end();
 
         batch.begin();
+
         helloFont.draw(batch, hello, helloCenterX, helloY);
+
         scoreOneFont.draw(batch, scoreOne, 400, SCREEN_HEIGHT - 50);
         scoreTwoFont.draw(batch, scoreTwo, SCREEN_WIDTH - 400 - scoreTwo.width, SCREEN_HEIGHT - 50);
         batch.end();
