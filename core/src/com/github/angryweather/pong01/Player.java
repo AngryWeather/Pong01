@@ -10,10 +10,22 @@ public abstract class Player {
     private final int speed = 400;
     private final float x;
     private float y;
+    private boolean isAWinner = false;
 
     public Player(float x, float y) {
         this.x = x;
         this.y = y;
+    }
+
+    public boolean isAWinner() {
+        return isAWinner;
+    }
+
+    public void setAWinner(boolean AWinner) {
+        isAWinner = AWinner;
+    }
+    public void resetScore() {
+        this.score = 0;
     }
 
     public float getY() {

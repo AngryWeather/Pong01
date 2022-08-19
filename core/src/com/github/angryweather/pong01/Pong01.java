@@ -118,13 +118,28 @@ public class Pong01 extends ApplicationAdapter {
             if (playerTwo.isScored(ball)) {
                 playerTwo.increaseScore();
                 scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
+                if (playerTwo.getScore() == 3) {
+                    playerTwo.setAWinner(true);
+                    System.out.println("You win!!!");
+                }
                 ball.centerBall();
             } else if (playerOne.isScored(ball)){
                 playerOne.increaseScore();
                 scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
+                if (playerOne.getScore() == 3) {
+                    playerOne.setAWinner(true);
+                    System.out.println("You win!!!");
+                }
                 ball.centerBall();
             }
 
+            if (playerOne.isAWinner() || playerTwo.isAWinner()) {
+                playerOne.resetScore();
+                playerTwo.resetScore();
+                scoreOne.setText(scoreOneFont, Integer.toString(playerOne.getScore()));
+                scoreTwo.setText(scoreTwoFont, Integer.toString(playerTwo.getScore()));
+
+            }
             if (collisionDetector.isCollidingWithTopWall(wall, ball)
                     || collisionDetector.isCollidingWithBottomWall(wall, ball)) {
                 ball.setDy(-ball.getDy());
